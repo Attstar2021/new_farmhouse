@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
 ]
-
+CSRF_TRUSTED_ORIGINS=['https://*.8000-attstar2021-newfarmhous-llzgn5fx2bv.ws-eu90.gitpod.io/']
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
