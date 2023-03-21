@@ -6,13 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>farmhouse hotel</title>
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'hotel/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/booking_list_view.css' %}">
   </head>
-  <body>   
+  <body>
+    <body class="bg-light">
+      <article class="container mt-3">
+        <header class="header" id="header">
+          <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a href="{% url 'home' %}" class="navbar-brand"><i class="fas fa-home"></i>Dream farmhouse</a>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'BookingListView' %}">Your Bookings</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Logout</a></li>
+                {% else %}
+                </li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sign In<i class="fas fa-user"></i> </a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sign Up<i class="fas fa-user-plus"></i> </a></li>
+                {% endif %}
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <section id="home" Class="img-fluid">
+          <img src="https://cdn.pixabay.com/photo/2016/12/07/23/41/norway-1890655_960_720.jpg" width="auto" height="auto" alt="green valley with houses" class='container '/>
+        </section>   
     <div class="d-flex flex-column align-items-center justify-content-center check_availability">
       <div class="headings m-4">
         <div id="search-bar" style="color: #fff;">
           <form method="POST" class="search-form m-0 container" action="">
+            {% csrf_token %}
             <div class="date-row row">
                 <div class="form-group d-flex justify-content-space-between col-sm-6 ">
                     {{form.check_in.errors}}
@@ -48,5 +77,12 @@
             <img src="https://res.cloudinary.com/attstar/image/upload/v1670248327/farm5_fsde83.jpg" width="300" height="200" class="rounded float-end d-sm-none d-none d-lg-block d-md-block" alt="sheeps in the field">
         </div>
     </div>
+    <footer>
+      <div class="link d-flex justify-content-center">
+          <a  href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Find us on Facebook (link open in new tab)">Facebook <i class="fab fa-facebook fa-fw fa-2x"></i></a>
+          <a  href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Find us on Twitter (link open in new tab)">Twitter <i class="fab fa-twitter fa-fw fa-2x"></i></a>
+          <a  href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Find us on Youtube (link open in new tab)">Youtube <i class="fab fa-youtube fa-fw fa-2x"></i></a>
+      </div>
+  </footer>
   </body>
 </html>

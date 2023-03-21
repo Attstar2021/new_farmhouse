@@ -11,11 +11,13 @@ import datetime
 # Create your views here.
 
 class BookingFormView(View):
+
     def get(self, request, *args, **kwargs):
         if "check_in" in request.session:
             s = request.session
             form_data = {
                 "check_in": s['check_in'], "check_out": s['check_out'], "room_category": s['room_category']}
+            form = AvailabilityForm(request.POST or None, initial=form_data)
         else:
             form = AvailabilityForm()
         return render(request, 'booking_form.html', {'form': form})
@@ -31,9 +33,7 @@ class BookingFormView(View):
             request.session['check_out'] = data['check_out'].strftime(
                 "%Y-%m-%dT%H:%M")
             request.session['room_category'] = data['room_category'].category
-            request.session['amount'] = find_total_room_charge(
-                data['check_in'], data['check_out'], data['room_category'])
-            return redirect('home:CheckoutView')
+            return redirect('BookingListView')
         return HttpResponse('form not valid', form.errors)
 
 
