@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Detail</title>
+    <script src="https://kit.fontawesome.com/692189991f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Room Image -->
+        <div class="image">
+            <img
+                src="https://res.cloudinary.com/attstar/image/upload/v1670873329/1_jj8z7g.png">
+        </div>
+
+        <!-- Room Details -->
+        <div class="room">
+
+            <!-- Div 1: Back to Home -->
+            <div class="home">
+                <a href="{% url 'home:RoomListView' %}"><i class="fas fa-arrow-alt-circle-left">Home</i></a>
+            </div>
+
+            <!-- Div 2: Room Information -->
+            <div class="room-info">
+                <h1>{{room_category}}</h1>
+                <p>We have feel like home comfort with wonderful services, spectacular views and fresh organic food.</p>
+            </div>
+
+            <!-- Div 3: Room Booking Form -->
+            {% csrf_token %}
+            <form id="booking-form" action="" method="POST">
+                <!-- Input Div -->
+                <div class="input-div">
+                    <label for="id_check_in">Check In : </label>
+                    <input type="datetime-local" id="id_check_in" name="check_in">
+                </div>
+                <!-- Input Div -->
+                <div class="input-div">
+                    <label for="id_check_out">Check Out : </label>
+                    <input type="datetime-local" id="id_check_out" name="check_out">
+                </div>
+                <!-- Input Div -->
+                <div class="input-div">
+                    <button type="submit">Book the Room</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="link d-flex justify-content-center">
+            <a  href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Find us on Facebook (link open in new tab)">Facebook <i class="fab fa-facebook fa-fw fa-2x"></i></a>
+            <a  href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Find us on Twitter (link open in new tab)">Twitter <i class="fab fa-twitter fa-fw fa-2x"></i></a>
+            <a  href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Find us on Youtube (link open in new tab)">Youtube <i class="fab fa-youtube fa-fw fa-2x"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

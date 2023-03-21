@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>farmhouse hotel</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'hotel/css/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+  <body>   
+    <div class="d-flex flex-column align-items-center justify-content-center check_availability">
+      <div class="headings m-4">
+        <div id="search-bar" style="color: #fff;">
+          <form method="POST" class="search-form m-0 container" action="">
+            <div class="date-row row">
+                <div class="form-group d-flex justify-content-space-between col-sm-6 ">
+                    {{form.check_in.errors}}
+                    <label class="mr-2" for="{{form.check_in.id_for_label}}">From:</label>
+                    {{form.check_in}}
+                </div>
+            <div class="form-group d-flex justify-content-space-around  col-sm-6 ">
+                {{form.check_out.errors}}
+                <label for="{{form.check_out.id_for_label}}">To: </label>
+                {{form.check_out}}
+            </div>
+        </div>
+        <div class="room-row row">
+          {{form.room_category.errors}}
+          <label for="{{form.room_category.id_for_label}}">Room Category ::</label>
+          {{form.room_category}}
+        </div>
+        <div class="form-group row mw-50 m-2">
+            <button class="btn btn-primary col-12  mw-50 " type="submit">
+              Find Room
+            </button>
+        </div>
+    </form> 
+     <!--farm images-->
+    <div class="row">
+        <div class="col">
+            <img src="https://res.cloudinary.com/attstar/image/upload/v1670248326/chicken_mjhovp.jpg" width="300" height="200" class="rounded float-start" alt="chicken sitting on farmhouse wall">
+        </div>
+        <div class="col">
+            <img src="https://res.cloudinary.com/attstar/image/upload/v1670248326/cow2_rybnui.jpg" width="300" height="200" class="rounded mx-auto d-md-none d-sm-none d-none d-lg-block" alt="cows in fields">
+        </div>
+        <div class="col">
+            <img src="https://res.cloudinary.com/attstar/image/upload/v1670248327/farm5_fsde83.jpg" width="300" height="200" class="rounded float-end d-sm-none d-none d-lg-block d-md-block" alt="sheeps in the field">
+        </div>
+    </div>
+  </body>
+</html>

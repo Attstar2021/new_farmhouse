@@ -18,7 +18,7 @@ class BookingFormView(View):
                 "check_in": s['check_in'], "check_out": s['check_out'], "room_category": s['room_category']}
         else:
             form = AvailabilityForm()
-        return render(request, '', {'form': form})
+        return render(request, 'booking_form.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = AvailabilityForm(request.POST)
@@ -39,7 +39,7 @@ class BookingFormView(View):
 
 class BookingListView(ListView):
     model = Booking
-    template_name = ""
+    template_name = "booking_list_view.html"
 
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_staff:
@@ -64,7 +64,7 @@ class RoomDetailView(View):
                 'room_category': room_category,
                 'form': form,
             }
-            return render(request, '', context)
+            return render(request, 'room_detail_view.html', context)
         else:
             return HttpResponse('Category does not exist')
 
