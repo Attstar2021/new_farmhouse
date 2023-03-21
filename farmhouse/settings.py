@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'home',
+    'home.booking_logic',
 ]
 CSRF_TRUSTED_ORIGINS=['https://*.8000-attstar2021-newfarmhous-llzgn5fx2bv.ws-eu90.gitpod.io/']
 MIDDLEWARE = [
