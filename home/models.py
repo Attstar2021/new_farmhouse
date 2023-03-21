@@ -21,7 +21,7 @@ class Room(models.Model):
         RoomCategory, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.number}. Beds = {self.beds} People = {self.capacity}'
+        return f'{self.number}. Beds = {self.beds} Person = {self.capacity}'
 
 
 class Booking(models.Model):
