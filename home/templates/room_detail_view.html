@@ -37,8 +37,9 @@
             </div>
                     {% endfor %}
             <!-- Div 3: Room Booking Form -->
-            <form id="booking-form" action="" method="POST">
-                {% csrf_token %}
+            <form id="booking-form" action="{% url 'RoomDetailView' %}" method="POST">
+            {% csrf_token %}
+
                 <!-- Input Div -->
                 <div class="input-div">
                     <label for="id_check_in">Check In : </label>

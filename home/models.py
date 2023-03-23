@@ -36,7 +36,7 @@ class Booking(models.Model):
         return f'From = {self.check_in.strftime("%d-%b-%Y %H:%M")} To = {self.check_out.strftime("%d-%b-%Y %H:%M")}'
 
     def get_cancel_booking_url(self):
-        return reverse_lazy('home:CancelBookingView', args=[self.pk, ])
+        return reverse_lazy('CancelBookingView', args=[self.pk, ])
 
 class Guest(models.Model):
     name = models.CharField(max_length=100)

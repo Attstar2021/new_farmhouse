@@ -47,7 +47,8 @@ class BookingListView(ListView):
             booking_list = Booking.objects.all()
             return booking_list
         else:
-            booking_list = Booking.objects.filter(user=self.request.user)
+            booking_list = Booking.objects.filter(user=self.request.user.id)
+           # bookings_list = Booking.objects.all().filter(user=user)
             return booking_list
 
 
@@ -69,9 +70,9 @@ class RoomDetailView(View):
         else:
             return HttpResponse('Category does not exist')
 
-    def post(self, request, id, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         category = self.kwargs.get('category', None)
-        room_list = Room.objects.filter(id=category)
+        room_list = Room.objects.filter(category=category)
         form = AvailabilityForm(request.POST)
 
         if form.is_valid():
@@ -92,6 +93,7 @@ class RoomDetailView(View):
                 check_out=data['check_out']
             )
             booking.save()
+            print('Your book has been saved!')
 
             return HttpResponse(booking)
         else:
@@ -101,6 +103,5 @@ class RoomDetailView(View):
 class CancelBookingView(DeleteView):
     model = Booking
     template_name = 'booking_cancel_view.html'
-    success_url = reverse_lazy('hotel:BookingListView')
-
+    success_url = reverse_lazy('home:BookingListView')
 

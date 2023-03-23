@@ -42,13 +42,19 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'home',
     'home.booking_logic',
 ]
-CSRF_TRUSTED_ORIGINS=['https://*.8000-attstar2021-newfarmhous-llzgn5fx2bv.ws-eu90.gitpod.io']
+
+CSRF_TRUSTED_ORIGINS=['https://*.8000-attstar2021-newfarmhous-llzgn5fx2bv.ws-eu92.gitpod.io/admin/login/?next=/admin/']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,6 +64,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+
+LLOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 ROOT_URLCONF = 'farmhouse.urls'
 
