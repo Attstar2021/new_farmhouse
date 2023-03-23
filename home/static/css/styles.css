@@ -16,7 +16,6 @@ a {
   width: 100%;
   z-index: 1;
   height: 50px;
-  /* margin: 5rem; */
   padding: 1.5rem;
   background-color: (255, 255, 255, 0.1) !important;
 }
@@ -40,37 +39,26 @@ a {
 
 
 #search-bar {
-  /* flex: 1; */
-  /* max-width: 30rem; */
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid #fff9f9;
   border-radius: 10px;
-  padding: 1rem;
-  /* max-width: 90vw; */
-  margin: 1rem;
+  padding: 0, auto;
+  margin: 0, auto;
 }
 
 .check_availability {
-  background-image: url(../img/hotel-1.2.5.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: beige;
+  text-align: center;
   width: 100vw;
   height: 100vh;
 }
-/* .form-group {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.2rem 0.5rem;
-} */
+
 .form-group a#dropdownMenuLink {
   min-width: 215px;
   flex: 7;
   margin: 0 0.1rem;
 }
 
-/* #room-dropdown {
-  width: 200px;
-} */
 .form-group input,
 .form-group label,
 .form-group div.dropdown {

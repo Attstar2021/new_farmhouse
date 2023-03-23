@@ -32,10 +32,10 @@
 
             <!-- Div 2: Room Information -->
             <div class="room-info">
-                <h1>{{room_category}}</h1>
+                <h1>{% for category in room_category %}</h1>
                 <p>We have feel like home comfort with wonderful services, spectacular views and fresh organic food.</p>
             </div>
-
+                    {% endfor %}
             <!-- Div 3: Room Booking Form -->
             <form id="booking-form" action="" method="POST">
                 {% csrf_token %}
