@@ -53,7 +53,7 @@ class BookingListView(ListView):
 
 
 class RoomDetailView(View):
-    def get(self,  request,*args, **kwargs):
+    def get(self,  request, *args, **kwargs):
         print(self.request.user)
         category = self.kwargs.get('category', None)
         form = AvailabilityForm()
@@ -102,6 +102,6 @@ class RoomDetailView(View):
 
 class CancelBookingView(DeleteView):
     model = Booking
-    template_name = 'booking_cancel_view.html'
-    success_url = reverse_lazy('home:BookingListView')
+    template_name = 'cancel_booking_view.html'
+    success_url = reverse_lazy('BookingListView')
 

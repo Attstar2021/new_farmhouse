@@ -7,9 +7,13 @@
   width: 100vw;
   text-align: center;
 }
+h1, h2 {
+  font-family: 'Caveat', cursive;
+}
 
 a {
   list-style: none;
+  text-decoration: none;
 }
 .nav {
   position: absolute;
