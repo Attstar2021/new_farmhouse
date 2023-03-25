@@ -33,7 +33,7 @@ class Booking(models.Model):
     check_out = models.DateTimeField()
     
     def __str__(self):
-        return f'From = {self.check_in.strftime("%d-%b-%Y %H:%M")} To = {self.check_out.strftime("%d-%b-%Y %H:%M")}'
+        return f' Hotel has been booked From = {self.check_in.strftime("%d-%b-%Y %H:%M")} To = {self.check_out.strftime("%d-%b-%Y %H:%M")}'
 
     def get_cancel_booking_url(self):
         return reverse_lazy('CancelBookingView', args=[self.pk, ])

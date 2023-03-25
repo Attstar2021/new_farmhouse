@@ -23,11 +23,11 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                 {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'BookingListView' %}">Your Bookings</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Logout</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                 </li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sign In<i class="fas fa-user"></i> </a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sign Up<i class="fas fa-user-plus"></i> </a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Sign In<i class="fas fa-user"></i> </a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'accounts_signin' %}">Sign Up<i class="fas fa-user-plus"></i> </a></li>
                 {% endif %}
                 </ul>
               </div>
@@ -43,7 +43,7 @@
             <div class="headings m-4">
               <div id="search-bar" style="color: #fff;">
                 <form method="POST" class="search-form m-0" action="{% url 'home' %}">
-                {% csrf_token %}
+                  {% csrf_token %}
                   <div class="date-row row text-dark fs-6">
                     <div class="form-group d-flex justify-content-center col-sm-6 ">
                         {{form.check_in.errors}}
@@ -62,9 +62,9 @@
                   {{form.room_category}}
                 </div>
               <div class="form-group row mw-50 m-2">
-                <button href="#"class="btn btn-primary col-12  mw-50 " type="submit">
-                  Find Room
-                </button>
+                <a href="{{category.get_room_detail_url}}" >
+                 <button class="btn btn-primary col-12  mw-50 " type="submit">Find Room</button>
+                </a>
               </div>
             </form> 
           </div>

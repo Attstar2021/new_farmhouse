@@ -21,6 +21,7 @@ class BookingFormView(View):
         else:
             form = AvailabilityForm()
         return render(request, 'booking_form.html', {'form': form})
+        #'booking_form.html'
 
     def post(self, request, *args, **kwargs):
         form = AvailabilityForm(request.POST)
@@ -33,7 +34,8 @@ class BookingFormView(View):
             request.session['check_out'] = data['check_out'].strftime(
                 "%Y-%m-%dT%H:%M")
             request.session['room_category'] = data['room_category'].category
-            return redirect('BookingListView')
+            return redirect('home')
+            #return redirect('RoomDetailView')
         return HttpResponse('form not valid', form.errors)
 
 

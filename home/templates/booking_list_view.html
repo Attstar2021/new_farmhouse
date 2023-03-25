@@ -24,11 +24,11 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             {% if user.is_authenticated %}
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'BookingListView' %}">Your Bookings</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Logout</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
             </li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sign In<i class="fas fa-user"></i> </a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sign Up<i class="fas fa-user-plus"></i> </a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Sign In<i class="fas fa-user"></i> </a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signin' %}">Sign Up<i class="fas fa-user-plus"></i> </a></li>
             {% endif %}
             </ul>
           </div>
@@ -50,7 +50,7 @@
               <div class="card-body">
                 <h5 class="card-title"></h5>
                 <div class="category col-md-5">
-                    <h6>{{booking.get_room_category}} Suite</h6>
+                    <h6>{{booking.get_room_category}} Room </h6>
                 </div>
                 <div class="from">
                     <h6>From: {{booking.check_in}}</h6>
