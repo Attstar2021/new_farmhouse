@@ -24,17 +24,17 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             {% if user.is_authenticated %}
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'BookingListView' %}">Your Bookings</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Farmhouse Blog</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
             </li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Sign In<i class="fas fa-user"></i> </a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signin' %}">Sign Up<i class="fas fa-user-plus"></i> </a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signup' %}">Sign Up<i class="fas fa-user-plus"></i> </a></li>
             {% endif %}
             </ul>
           </div>
         </div>
-      </nav>
-    </header>
+      </nav>    </header>
     <section id="home" Class="img-fluid">
       <img src="https://cdn.pixabay.com/photo/2016/12/07/23/41/norway-1890655_960_720.jpg" width="auto" height="auto" alt="green valley with houses" class='container '/>
       <div class="headings">
