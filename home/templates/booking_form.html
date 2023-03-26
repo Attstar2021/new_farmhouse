@@ -8,6 +8,8 @@
     <!-- Bootstrap core CSS -->
     <script src="https://kit.fontawesome.com/692189991f.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/booking_list_view.css' %}">
   </head>
     <body class="bg-light">
@@ -23,8 +25,8 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                 {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'BookingListView' %}">Your Bookings</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Farmhouse Blog</a></li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Farmhouse Blog</a></li>
                 {% else %}
                 </li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Sign In<i class="fas fa-user"></i> </a></li>
@@ -33,7 +35,8 @@
                 </ul>
               </div>
             </div>
-          </nav>        </header>
+          </nav>
+        </header>
         <section id="home" Class="img-fluid">
           <img src="https://cdn.pixabay.com/photo/2016/12/07/23/41/norway-1890655_960_720.jpg" width="auto" height="auto" alt="green valley with houses" class='container '/>
         </section>  
@@ -43,6 +46,7 @@
             <div class="headings m-4">
               <div id="search-bar" style="color: #fff;">
                 <form method="POST" class="search-form m-0" action="{% url 'home' %}">
+                  <!-- This form is not fuctional as still under process -->
                   {% csrf_token %}
                   <div class="date-row row text-dark fs-6">
                     <div class="form-group d-flex justify-content-center col-sm-6 ">
@@ -62,13 +66,15 @@
                   {{form.room_category}}
                 </div>
               <div class="form-group row mw-50 m-2">
-                <a href="{{category.get_room_detail_url}}" >
-                 <button class="btn btn-primary col-12  mw-50 " type="submit">Find Room</button>
+                <a href="{{'home'}}" >
+                 <button class="btn btn-primary col-12  mw-50 " type="submit">Request Booking</button>
                 </a>
               </div>
             </form> 
           </div>
         </div>
+        
+    
      <!--farm images-->
     <div class="row">
       <div class="col">
@@ -88,5 +94,12 @@
           <a  href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Find us on Youtube (link open in new tab)">Youtube <i class="fab fa-youtube fa-fw fa-2x"></i></a>
       </div>
   </footer>
+  <script>
+    setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 2000);
+ </script>
   </body>
 </html>
