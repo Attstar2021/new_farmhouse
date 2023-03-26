@@ -49,11 +49,21 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
+    # 'django-crispy-forms',
     'home',
     'home.booking_logic',
+    'blog',
 ]
 
 CSRF_TRUSTED_ORIGINS=['https://*.8000-attstar2021-newfarmhous-llzgn5fx2bv.ws-eu92.gitpod.io/admin/login/?next=/admin/']
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,12 +79,6 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-SITE_ID = 1
-
-
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
 ROOT_URLCONF = 'farmhouse.urls'

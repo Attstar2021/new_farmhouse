@@ -94,12 +94,15 @@ class RoomDetailView(View):
                 check_in=data['check_in'],
                 check_out=data['check_out']
             )
-            booking.save()
-            print('Your book has been saved!')
+        return render(request, 'home/room_detail_view.html', {
+        'booking_obj': booking_obj
+    })
+        #     booking.save()
+        #     print('Your book has been saved!')
 
-            return HttpResponse(booking)
-        else:
-            return HttpResponse('All of this category of rooms are booked!! Try another one')
+        #     return HttpResponse(booking)
+        # else:
+        #     return HttpResponse('All of this category of rooms are booked!! Try another one')
 
 
 class CancelBookingView(DeleteView):
