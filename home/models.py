@@ -10,7 +10,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class RoomCategory(models.Model):
     category = models.CharField(max_length=50)
-    rate = models.FloatField()
+    #rate = models.FloatField()
 
     def __str__(self):
         return self.category
@@ -36,10 +36,8 @@ class Booking(models.Model):
     check_out = models.DateTimeField()
     
     def __str__(self):
-        return f' Hotel has been booked From = {self.check_in.strftime("%d-%b-%Y %H:%M")} To = {self.check_out.strftime("%d-%b-%Y %H:%M")}'
+        return f' Hotel has been booked From = {self.check_in.strftime("%d-%b-%Y")} To = {self.check_out.strftime("%d-%b-%Y")}'
 
-    def get_cancel_booking_url(self):
-        return reverse_lazy('CancelBookingView', args=[self.pk, ])
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
