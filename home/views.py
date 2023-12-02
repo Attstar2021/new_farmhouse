@@ -90,7 +90,7 @@ class PostLike(View):
 class BookingFormView(View):
     
     model = Booking
-    template_name = 'booking_form.html'
+    template_name = 'home.html'
 
     def get(self, request, *args, **kwargs):
         if "check_in" in request.session:
@@ -100,7 +100,7 @@ class BookingFormView(View):
             form = AvailabilityForm(request.POST or None, initial=form_data)
         else:
             form = AvailabilityForm()
-        return render(request, 'booking_form.html', {'form': form})
+        return render(request, 'home.html', {'form': form})
         
 
     def post(self, request, *args, **kwargs):

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{%  block start %}
+ {% block title %} Bookings Views {% endblock title %} 
+ {% block body %}
+
+    <h3 class="text-center  text-success">My Bookings </h3>
+    <table class="table">
+        <thead>
+            <th>User Name</th>
+            <th>Check in date</th>
+            <th>Check out date</th>
+            <th>User ID</th>
+            <th>uid</th>
+            <!-- <th>Update Booking</th>
+            <th>Delete Booking</th> -->
+    
+        </thead>
+        {% for each_booking in bookings %}
+        <tr>
+            <td>{{each_booking.user.username}}</td>
+            <td>{{each_booking.check_in}}</td>
+            <td>{{each_booking.check_out}}</td>
+            <td>{{each_booking.user_id}}</td>
+            <td>{{each_booking.uid}}</td>
+            <td>
+                <a href="url 'delete_booking' HotelBooking.objects">
+                    <button>update</button>
+                </a>
+            </td>       
+            <td>
+                <a href="">
+                    <button>Delete</button>
+                </a>
+            </td>       
+        </tr>
+        {% empty %}
+        <tr>
+            <td>You have no booking</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <!--farm images-->
+    <div class="row">
+        <div class="col">
+         <img src="https://res.cloudinary.com/attstar/image/upload/v1670873331/3_c5pbnj.png" class="rounded float-start" width="400" height="400" alt="hotel room with bed and window">
+        </div>
+        <div class="col">
+            <img src="https://res.cloudinary.com/attstar/image/upload/v1670248328/toilet2_hjr9su.jpg" class="rounded mx-auto d-md-none d-sm-none d-none d-lg-block" width="400" height="400" alt="hotal toilet with bathtub">
+        </div>
+        <div class="col">
+            <img src="https://res.cloudinary.com/attstar/image/upload/v1670248327/farm-house_j2el8h.jpg" class="rounded float-end d-sm-none d-none d-lg-block d-md-block" width="400" height="400" alt="farmhouse reception">
+        </div>
+      </div>
+    </div>
+    <!--farm images-->
+
+    {% endblock body %}
+{% endblock %}
