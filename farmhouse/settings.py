@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['dream-farmhouse.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['dream-farmhouse.herokuapp.com', '8000-attstar2021-newfarmhous-l3j7skkr7qs.ws-eu106.gitpod.io/']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
