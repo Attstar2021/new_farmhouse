@@ -2,6 +2,11 @@ body {
     background-color: #F9FAFC;
 }
 
+#menu {
+    letter-spacing: 2px;
+    list-style-type: none;
+}
+
  .icon {
     list-style: none;
     text-decoration: none;
