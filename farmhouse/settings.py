@@ -54,9 +54,10 @@ INSTALLED_APPS = [
     'django_summernote',
     'home',
     'home.booking_logic',
+    'blog',
 ]
 
-# CSRF_TRUSTED_ORIGINS=['https://*.8000-attstar2021-newfarmhous-llzgn5fx2bv.ws-eu92.gitpod.io/admin/login/?next=/admin/']
+CSRF_TRUSTED_ORIGINS=['https://8000-attstar2021-newfarmhous-l3j7skkr7qs.ws-eu106.gitpod.io']
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
