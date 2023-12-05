@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 # Create your models here
-
 class RoomCategory(models.Model):
     category = models.CharField(max_length=50)
     #rate = models.FloatField()
