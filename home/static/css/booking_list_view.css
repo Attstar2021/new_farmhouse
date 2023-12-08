@@ -59,6 +59,7 @@ h2, h3 {
     padding:1rem;
     border-radius: 0.75rem;
     margin:1rem;
+    z-index: 99;
 }
 .booking:hover{
     cursor: pointer;

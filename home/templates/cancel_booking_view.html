@@ -44,14 +44,17 @@
         </div>
 
             <!-- Div 3: Room Booking Form -->
-            <form id="booking-form" action="{% url 'CancelBookingView' booking.id %}" method="POST">
+            <!-- <form id="booking-form" action="" method="POST"></form> -->
+            <form id="booking-form" method="POST">
             {% csrf_token %}
-                <h3>Are you sure you wanna cancel this Booking?</h3>
-                 <h4>Your Booking Details</h4>
-                <h5>Room No. {{booking.room.number}} {{booking.get_room_category}} {{booking}}</h5>
+                <h5>Are you sure you wanna cancel this Booking?</h5>
+                 <h5>Your Booking Details</h5>
+                <h6>{{booking}}</h6>
                 <!-- Input Div -->
                 <div class="input-div">
+                  <a href="">
                     <button class="btn btn-danger type="submit" name="" value="{{ cancel }}">Cancel My Booking</button>
+                  </a>
                 </div>
 
             </form>

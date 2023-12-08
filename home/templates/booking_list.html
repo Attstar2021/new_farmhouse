@@ -94,9 +94,13 @@
                             <h6>Capacity: {{ booking.room.capacity }}</h6>
                         </div>
                     </div>
-                    <div class="cancel">
-                        <a href="{{ booking.get_cancel_booking_url }}"><i class="far fa-2x fa-times-circle"></i><h6>Cancel Booking</h6></a>
-                    </div>
+                    <a href="/delete/{{ booking.id }}">
+            <button type="submit">Delete</button>
+          </a>
+          
+                    <!-- <div class="cancel">
+                        <a href="{{ booking.get_cancel_booking.url }}"><i class="far fa-2x fa-times-circle"></i><h6>Cancel Booking</h6></a>
+                    </div> -->
                 </div>
                 {% endfor %}
             </div>

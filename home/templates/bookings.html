@@ -6,29 +6,23 @@
     <h3 class="text-center  text-success">My Bookings </h3>
     <table class="table">
         <thead>
-            <th>User Name</th>
             <th>Check in date</th>
             <th>Check out date</th>
-            <th>User ID</th>
-            <th>uid</th>
-            <!-- <th>Update Booking</th>
-            <th>Delete Booking</th> -->
+            <th>Update Booking</th>
+            <th>Delete Booking</th>
     
         </thead>
         {% for each_booking in bookings %}
         <tr>
-            <td>{{each_booking.user.username}}</td>
             <td>{{each_booking.check_in}}</td>
             <td>{{each_booking.check_out}}</td>
-            <td>{{each_booking.user_id}}</td>
-            <td>{{each_booking.uid}}</td>
-            <td>
-                <a href="url 'delete_booking' HotelBooking.objects">
+            <td>{{each_user.id}}</td>
+                <a href="">
                     <button>update</button>
                 </a>
             </td>       
             <td>
-                <a href="">
+                <a href="url 'delete' Booking.objects">
                     <button>Delete</button>
                 </a>
             </td>       

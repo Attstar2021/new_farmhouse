@@ -31,7 +31,15 @@ class Booking(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     check_in = models.DateTimeField()
     check_out = models.DateTimeField()
+    #slug = models.SlugField(max_length=200, unique=True, null=True)
     
-    def __str__(self):
+    def __str__(self) -> str:
         return f' Hotel has been booked From = {self.check_in.strftime("%d-%b-%Y")} To = {self.check_out.strftime("%d-%b-%Y")}'
 
+    # def save(self, *args, **kwargs):
+    #     # Generate slug when saving the object
+    #     self.slug = slugify(self.hotel_name)
+    #     super().save(*args, **kwargs)
+
+    #def get_absolute_url(self):
+       # return reverse('BookingListView', args=[str(self.slug)])

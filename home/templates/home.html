@@ -1,139 +1,48 @@
 {% extends "base.html" %}
-
-{% block content %}
-
-<!-- hotel details -->
-<section class="farmhouse-intro mt-5">
-    <div class="row col-sm">
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="container">
-                <div class="d-flex flex-column align-items-center justify-content-center check_availability">
-                    <div class="headings m-12">
-                        <div id="search-bar" style="color: #fff;">
-                            <form method="POST" class="search-form m-0" action="{% url 'home' %}">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button class="btn btn-primary" type="submit">Book Hotel</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- <section class="search-container mb-5 pb-5">
-    <div class="container .bg-secondary">
-        <div class="col-lg-9 px-4 mb-5">
-            <form>
-                <p>{{excluded_dates}}</p>
-                <div class="row mt-3">
-                    <div class="col-md-4">
-                        <div class="form-inline">
-                            <label class="" for="exampleFormControlSelect1">Search</label>
-                            <input name="search" class="form-control" value="{{ search }}" placeholder="Search">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-inline">
-                            <label class="" for="exampleFormControlSelect1">Amenities</label>
-                            <select name="amenities" class="form-control">
-                                <option value="">Choose</option>
-                                {% for amenities_obj in amenities_objs %}
-                                <option {% if amenities_obj.amenity_name in amenities %} selected {% endif %}
-                                    value="{{ amenities_obj.amenity_name }}">{{ amenities_obj.amenity_name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <button style="margin-top: 30px;" type="submit" class="btn btn-success">Find</button>
-                    </div>
-                </div>
-            </form>
-
-            Hotel Detail Column 
-            <div class="col-12 mt-3 left">
-                <div class="row search-card-result .bg-dark">
-                    {% for hotels_obj in hotels_objs %}
-
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="image-container">
-                                     put images setting in hotel 
-                                    {% if "placeholder" in hotel.featured_image.url %}
-                                    <img class="card-img-top"
-                                        src="https://res.cloudinary.com/attstar/image/upload/v1670873330/2_tur7do.png">
-                                    {% else %}
-                                    <img class="card-img-top" src="{{ hotels_obj.images.first.images }}">
-                                    {% endif %}
-                                    <div class="image-flash">
-                                        <h5>{{ hotels_obj.hotel_name }}</h5>
-                                        <p>{{ hotels_obj.description|truncatechars:150 }}</p>
-                                        <p>{% for amenitie in hotels_obj.amenities.all %}
-                                            <b>{{ amenitie.amenity_name }}</b>,
-                                            {% endfor %}
-                                        </p>
-                                    </div>
+{%  block content %}
+<section class="search-container mb-5 pb-5">
+    {% if user.is_authenticated %}
+        <div class="container"> 
+            <div class="d-flex flex-column align-items-center justify-content-center check_availability">
+                <div class="headings m-4">
+                    <div id="search-bar" style="color: #fff;">
+                        <form method="POST" class="search-form m-0" action="{% url 'home' %}">
+                        <!-- This form is not fuctional as still under process -->
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                            <!-- <div class="date-row row text-dark fs-6">
+                                <div class="form-group d-flex justify-content-center col-sm-6 ">
+                        {{form.check_in.errors}}
+                                    <label class="mr-2" for="{{form.check_in.id_for_label}}">From:</label>
+                        {{form.check_in}}
                                 </div>
-                                <h2 class="card-title">{{ hotel.name }}</h2>
-                                </a>
-                                <hr />
-                                <p class="card-text text-muted h6">{{ hotel.created_on }} <i class="far fa-heart"></i>
-                                    {{ hotel.number_of_likes }}</p>
+                                <div class="form-group d-flex justify-content-center col-sm-6 ">
+                        {{form.check_out.errors}}
+                                        <label for="{{form.check_out.id_for_label}}">To:</label>
+                        {{form.check_out}}
+                                </div>
                             </div>
-                        </div>
+                            <div class="room-row row text-dark fs-6">
+                        {{form.room_category.errors}}
+                                <label for="{{form.room_category.id_for_label}}">Room Category</label>
+                        {{form.room_category}}
+                            </div> -->
+                            <div class="form-group row mw-50 m-2">
+                                <button class="btn btn-primary col-12  mw-50 " type="submit">Book a room
+                                    <a href="{{'BookingListView'}}" ></a>
+                                </button>
+                            </div>
+                        </form> 
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
-                </div>
-                <div class="row">
-                    {% endif %}
-                    {% endfor %}
-
+                        {% else %}
+                        <p><strong>Welcome to Dream Farmhouse!<strong></p>
+                        <p>Please click on login for booking</p>
+                        <a href="{% url 'account_login' %}">
+                            <button>Login</button>
+                        </a>
                 </div>
             </div>
         </div>
-        {% if is_paginated %}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-                {% endif %}
-                {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-        {% endif %}
-    </div>
-    </div>
-</section> -->
-
-<script>
-    
-    var checkIn = document.querySelector('#id_check_in')
-
-    var checkOut = document.getElementById("id_check_out");
-
-    var disabledDates = "{{excluded_dates}}";
-   
-    checkIn.addEventListener("change", function() {
-        var selectedDate = checkIn.value;
-        if (disabledDates.includes(selectedDate)) {
-            alert("This date is already Booked!");
-            checkIn.value = ""; 
-        }
-    });
-
-    checkOut.addEventListener("change", function() {
-        var selectedDate = checkOut.value;
-        if (disabledDates.includes(selectedDate)) {
-            alert("This date is already Booked!");
-            checkOut.value = ""; 
-        }
-    });
-</script>
-
+    {% endif %}
+</section>
 {% endblock %}
