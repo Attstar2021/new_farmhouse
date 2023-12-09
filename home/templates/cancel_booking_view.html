@@ -13,47 +13,29 @@
         </div>
     </div>
 </div>
-    <article class="container mt-3 text-center">
-    <header class="header" id="header">
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><a href="{% url 'home' %}" class="navbar-brand"><i class="fas fa-home"></i>Dream farmhouse</a></span>
-          </button>
-          
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-            {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'BookingListView' %}">Your Bookings</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Farmhouse Blog</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-            {% else %}
-            </li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Sign In<i class="fas fa-user"></i> </a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signup' %}">Sign Up<i class="fas fa-user-plus"></i> </a></li>
-            {% endif %}
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
     <!-- Div 2: Room Information -->
         <div class="room-info">
             <h1>{{room_category}}</h1>
-            <h2>Amazing room services, wonderful location, peaceful environment along with fresh organic food.</p>
+            <p>Amazing room services, wonderful location, peaceful environment along with fresh organic food.</p>
         </div>
 
             <!-- Div 3: Room Booking Form -->
             <!-- <form id="booking-form" action="" method="POST"></form> -->
             <form id="booking-form" method="POST">
             {% csrf_token %}
-                <h5>Are you sure you wanna cancel this Booking?</h5>
-                 <h5>Your Booking Details</h5>
-                <h6>{{booking}}</h6>
+                <h6>Are you sure you wanna cancel this Booking?</h6>
                 <!-- Input Div -->
                 <div class="input-div">
                   <a href="">
-                    <button class="btn btn-danger type="submit" name="" value="{{ cancel }}">Cancel My Booking</button>
+                    <button class="btn btn-danger type="submit" name="" value="{{ cancel }}">Yes Cancel My Booking</button>
+                  </a>
+                </div>
+                <div>
+                  <!-- <a href="{% url 'BookingListView' %}">
+                    <button class="btn btn-warning">No</button>
+                  </a> -->
+                  <a class="nav-link active" aria-current="page" href="{% url 'BookingListView' %}">
+                    Click Here To Cancel
                   </a>
                 </div>
 
