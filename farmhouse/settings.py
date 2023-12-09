@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['dream-farmhouse.herokuapp.com', '8000-attstar2021-newfarmhous-l3j7skkr7qs.ws-eu106.gitpod.io']
 
@@ -53,11 +53,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_summernote',
     'home',
-    # 'home.booking_logic',
     'blog',
 ]
 
-CSRF_TRUSTED_ORIGINS=['https://8000-attstar2021-newfarmhous-l3j7skkr7qs.ws-eu106.gitpod.io']
+CSRF_TRUSTED_ORIGINS=['https://dream-farmhouse.herokuapp.com/']
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
