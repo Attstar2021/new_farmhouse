@@ -8,7 +8,7 @@ Django==3.2.23
 django-allauth==0.54.0
 django-cloudinary-storage==0.3.0
 django-cors-headers==4.2.0
-django-crispy-forms==1.14.0
+django-crispy-forms
 django-filter==23.2
 django-summernote==0.8.20.0
 djangorestframework==3.14.0
