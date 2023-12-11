@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'blog',
 ]
 
-#CSRF_TRUSTED_ORIGINS=['https://dream-farmhouse.herokuapp.com']
+CSRF_TRUSTED_ORIGINS=['https://dream-farmhouse.herokuapp.com']
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
