@@ -29,9 +29,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#development = os.environ.get("DEVELOPMENT", False)
-#DEBUG = development
-DEBUG = True
+development = os.environ.get("DEVELOPMENT", False)
+DEBUG = development
+#DEBUG = True
 
 ALLOWED_HOSTS = ['dream-farmhouse.herokuapp.com', '8000-attstar2021-newfarmhous-l3j7skkr7qs.ws-eu106.gitpod.io']
 
@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'blog',
 ]
 
-CSRF_TRUSTED_ORIGINS=['https://dream-farmhouse.herokuapp.com']
+#CSRF_TRUSTED_ORIGINS=['https://dream-farmhouse.herokuapp.com']
+CSRF_TRUSTED_ORIGINS=['https://8000-attstar2021-newfarmhous-l3j7skkr7qs.ws-eu106.gitpod.io']
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
