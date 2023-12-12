@@ -29,8 +29,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-development = os.environ.get("DEVELOPMENT", False)
-DEBUG = development
+#development = os.environ.get("DEVELOPMENT", False)
+#DEBUG = development
+DEBUG = True
 
 ALLOWED_HOSTS = ['dream-farmhouse.herokuapp.com', '8000-attstar2021-newfarmhous-l3j7skkr7qs.ws-eu106.gitpod.io']
 
